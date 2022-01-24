@@ -1,0 +1,41 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #fff;
+$accent-color: #142683;
+
+body {
+  font: 100% $font-stack;
+}
+
+.navbar {
+  background-color: $primary-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.navbarLinks {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.link {
+  text-decoration: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.btnlink {
+  text-decoration: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background-color: $accent-color;
+  color: #fff;
+  padding: 0.8rem;
+  border-radius: 10px;
+}
+
+.btnlink:hover {
+  color: #797979;
+}

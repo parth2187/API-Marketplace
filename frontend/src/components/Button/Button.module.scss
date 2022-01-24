@@ -1,0 +1,11 @@
+$accent-color: #142683;
+
+.btn {
+  padding: 0.5rem 2rem;
+  background-color: $accent-color;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 1.2rem;
+}
