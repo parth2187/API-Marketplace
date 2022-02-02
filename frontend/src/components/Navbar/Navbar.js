@@ -1,10 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.scss";
 import logo from "../../Assets/images/logo/logo.svg";
-import Button from "../Button/Button";
 
 function Navbar() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const Navigate = useNavigate();
   return (
     <nav className={styles.navbar}>
       <div className="navbar-logo">
@@ -12,23 +13,31 @@ function Navbar() {
           <img src={logo} />
         </Link>
       </div>
-      <ul className={styles.navbarLinks}>
-        <li>
-          <Link className={styles.link} to="/dashboard">
-            My APIs
-          </Link>
-        </li>
-        <li>
-          <Link className={styles.link} to="/account">
-            My Account
-          </Link>
-        </li>
-        <li>
-          <Link className={styles.btnlink} to="/Login">
-            Login/Signup
-          </Link>
-        </li>
-      </ul>
+      {!isLoggedIn ? (
+        <ul className={styles.navbarLinks}>
+          <li>
+            <Link className={styles.btnlink} to="/Login">
+              Login/Signup
+            </Link>
+          </li>
+        </ul>
+      ) : (
+        <ul className={styles.navbarLinks}>
+          <li>
+            <Link className={styles.link} to="/dashboard">
+              My APIs
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.link} to="/account">
+              My Account
+            </Link>
+          </li>
+          <button type="button" className={styles.btnlink}>
+            Logout
+          </button>
+        </ul>
+      )}
     </nav>
   );
 }

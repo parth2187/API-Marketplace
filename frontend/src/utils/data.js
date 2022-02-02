@@ -1,9 +1,9 @@
 const data = [
   {
-    title: "WhatFont",
+    title: "Background Remover",
     description:
       "A web application that allows users to search for fonts and view font information.",
-    img: require("../Assets/images/img1.png"),
+    img: require("../Assets/images/img4.png"),
   },
   {
     title: "HTTPS Everywhere",
@@ -21,13 +21,19 @@ const data = [
     title: "Background Remove",
     description:
       "A web application that allows users to search for fonts and view font information.",
-    img: require("../Assets/images/img1.png"),
+    img: require("../Assets/images/img1.jpeg"),
   },
   {
     title: "Background Remove",
     description:
       "A web application that allows users to search for fonts and view font information.",
-    img: require("../Assets/images/img1.png"),
+    img: require("../Assets/images/img1.jpeg"),
+  },
+  {
+    title: "Background Remove",
+    description:
+      "A web application that allows users to search for fonts and view font information.",
+    img: require("../Assets/images/img1.jpeg"),
   },
 ];
 
