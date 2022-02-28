@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.scss";
 import logo from "../../Assets/images/logo/logo.svg";
 
 function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const Navigate = useNavigate();
   return (
     <nav className={styles.navbar}>
       <div className="navbar-logo">
