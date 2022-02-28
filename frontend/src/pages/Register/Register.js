@@ -1,35 +1,36 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Button from "../../components/Button/Button";
-import styles from "./LoginPage.module.scss";
+import styles from "./Register.module.scss";
 import loginSvg from "../../Assets/images/svg/login.svg";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-
-const LoginPage = () => {
+const Register = () => {
+  const [username, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  async function userLogin(event) {
+  async function userSignup(event) {
     event.preventDefault();
-    const response = await fetch("http://localhost:5000/user/login", {
+    const response = await fetch("http://localhost:5000/user/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        username,
         email,
         password,
       }),
     });
-    console.log(response);
+
     const data = await response.json();
 
     if (data.token) {
-      localStorage.setItem("token", data.token);
-      alert("Login Successful");
-      navigate("/dashboard", { replace: true });
+      localStorage.setItem("token", data.user);
+      alert("Register Successful");
+      navigate("/login", { replace: true });
     } else {
       alert("Please check your username and password");
     }
@@ -48,8 +49,15 @@ const LoginPage = () => {
         </div>
       </div>
       <div className={styles.formSection}>
-        <form onSubmit={userLogin} className={styles.forms}>
-          <p>Login to your account </p>
+        <form onSubmit={userSignup} className={styles.forms}>
+          <p>Register your account </p>
+          <input
+            value={username}
+            onChange={(e) => setName(e.target.value)}
+            className={styles.input}
+            type="text"
+            placeholder="Name"
+          />
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -65,17 +73,19 @@ const LoginPage = () => {
             placeholder="Password"
           />
           <Button
-            onClick={userLogin}
+            onClick={userSignup}
             type="submit"
-            value="Login"
-            text="Login"
+            value="Signup"
+            text="Signup"
           />
-          <span className={styles.link}></span>
-          <Link to="/register">Not registered? Click here to sign up!</Link>
+          <Link to="/login" className={styles.Link}>
+            Already have an account? <br />
+            Click here to login!
+          </Link>
         </form>
       </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default Register;

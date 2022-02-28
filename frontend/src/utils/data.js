@@ -24,13 +24,13 @@ const data = [
     img: require("../Assets/images/img1.jpeg"),
   },
   {
-    title: "Background Remove",
+    title: "Other Api",
     description:
       "A web application that allows users to search for fonts and view font information.",
     img: require("../Assets/images/img1.jpeg"),
   },
   {
-    title: "Background Remove",
+    title: "MovieDB Api",
     description:
       "A web application that allows users to search for fonts and view font information.",
     img: require("../Assets/images/img1.jpeg"),

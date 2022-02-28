@@ -1,23 +1,26 @@
 const express = require("express");
-const mongoose = require("mongoose");
+const InitateMongoServer = require("./models/db");
 const dotenv = require("dotenv");
-dotenv.config();
-const port = process.env.PORT || 3000;
+const user = require("./routes/user");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+
+// Initate mongo server
+InitateMongoServer();
 
 const app = express();
 
-mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => {
-    console.log("Connected to database");
-  })
-  .catch((err) => {
-    console.log("Error connecting to database", err);
-  });
+dotenv.config();
+const port = process.env.PORT || 5000;
 
-app.get("/helloworld", (req, res) => {
-  res.send("Hello World");
+app.use(cors());
+// Middleware
+app.use(bodyParser.json());
+app.get("/", (req, res) => {
+  res.json({ message: "Hello Parth, This is working API" });
 });
+
+app.use("/user", user);
 
 app.listen(port, () => {
   console.log(`Port listening at http://localhost:${port}`);
