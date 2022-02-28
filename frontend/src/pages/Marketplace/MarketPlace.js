@@ -1,7 +1,7 @@
 import Card from "../../components/CardComponent/Card";
 import styles from "./MarketPlace.module.scss";
 import data from "../../utils/data";
-
+import Banner from "../../components/Banner/Banner";
 import React from "react";
 
 const MarketPlace = () => {
@@ -16,11 +16,9 @@ const MarketPlace = () => {
 
   return (
     <div>
+      <Banner />
       <div className={styles.container}>
         <h3>All APIs </h3>
-        <div>
-          <div banner= x
-        </div>
         <div className={styles.cards}>{dataList}</div>
       </div>
     </div>

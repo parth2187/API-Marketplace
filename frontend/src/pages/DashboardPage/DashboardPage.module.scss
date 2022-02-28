@@ -4,11 +4,13 @@
   box-sizing: border-box;
 }
 .container {
-  padding: 0;
-  margin-left: auto;
+  // padding: 0;
+  // margin-left: auto;
   width: 100%;
   height: 100%;
   background-color: #fafafa;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .container > * {
@@ -22,6 +24,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 5em;
 }
 
 .container > h3 {
