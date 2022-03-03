@@ -17,6 +17,7 @@ const Bgremover = () => {
         <button type="submit" className={styles.uploadbtn}>
           Upload Image
         </button>
+        <input type="file" name="myImage" accept="image/*" />
         <p>Or drop files here</p>
       </div>
     </div>

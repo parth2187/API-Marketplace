@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./Navbar.module.scss";
 import logo from "../../Assets/images/logo/logo.svg";
+import ApiModal from "../ApiModal/ApiModal";
 
 function Navbar() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [ModalOpen, setModalOpen] = useState(false);
   return (
     <nav className={styles.navbar}>
       <div className="navbar-logo">
@@ -32,9 +34,10 @@ function Navbar() {
               My Account
             </Link>
           </li>
-          <button type="button" className={styles.btnlink}>
-            Logout
+          <button className={styles.btnlink} onClick={() => setModalOpen(true)}>
+            +New API
           </button>
+          {ModalOpen && <ApiModal setOpenModal={setModalOpen} />}
         </ul>
       )}
     </nav>

@@ -11,13 +11,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 3.5rem;
+  padding: 1.2rem 3.5rem;
 }
 
 .navbarLinks {
   list-style: none;
   display: flex;
   gap: 1.5rem;
+  align-items: center;
 }
 
 .link {
@@ -33,7 +34,8 @@ body {
   background-color: $accent-color;
   color: #fff;
   padding: 0.8rem;
-  border-radius: 10px;
+  border-radius: 5px;
+  border: none;
 }
 
 .btnlink:hover {

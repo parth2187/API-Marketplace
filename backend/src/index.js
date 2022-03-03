@@ -1,3 +1,4 @@
+const bgRemoverRoute = require("./routes/bgremover");
 const express = require("express");
 const InitateMongoServer = require("./models/db");
 const dotenv = require("dotenv");
@@ -17,10 +18,11 @@ app.use(cors());
 // Middleware
 app.use(bodyParser.json());
 app.get("/", (req, res) => {
-  res.json({ message: "Hello Parth, This is working API" });
+  res.json({ message: "Working API" });
 });
 
 app.use("/user", user);
+app.use("/bgremover", bgRemoverRoute);
 
 app.listen(port, () => {
   console.log(`Port listening at http://localhost:${port}`);

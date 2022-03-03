@@ -12,16 +12,20 @@
   height: 90vh;
 }
 .wrapper {
-  margin: 5em;
   height: 40%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
-.left > h2 {
+.wrapper > h2 {
   font-size: 2rem;
   font-weight: bold;
-  margin: 0 4em;
+  margin: 0 2em;
+}
+.wrapper > p {
+  font-size: 1.2rem;
+  margin: 0 3em;
+  line-height: 2em;
 }
 .formSection {
   height: 90vh;
@@ -53,8 +57,9 @@
   margin: 1rem;
 }
 .dashboardimg {
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
+  margin-left: 50px;
 }
 
 .Link {

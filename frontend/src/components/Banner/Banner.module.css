@@ -7,7 +7,7 @@
   flex-wrap: wrap;
 }
 .bannerimg {
-  width: 15rem;
+  width: 17rem;
   height: 10em;
 }
 .bannerstyle {
@@ -38,4 +38,5 @@
   background: #1e272e;
   color: #fff;
   margin-right: 2em;
+  border: none;
 }
