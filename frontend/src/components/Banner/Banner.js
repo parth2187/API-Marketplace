@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./Banner.module.css";
+import styles from "./Banner.module.scss";
 import BGRemover from "../../Assets/images/bgremover.svg";
 
 function Banner() {

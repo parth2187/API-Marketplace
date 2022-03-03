@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Bgremover.module.css";
+import styles from "./Bgremover.module.scss";
 import img from "../../Assets/images/bgremover.svg";
 import imglogo from "../../Assets/images/svg/imagelogo.svg";
 

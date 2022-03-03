@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-
+@import "https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap";
 .container {
   display: flex;
   justify-content: center;
@@ -19,12 +18,12 @@
   border-radius: 1em;
   width: 900px;
 }
-
-.bannertext > h3 {
-  font-family: "Bebas Neue", cursive;
-  font-size: 2.5em;
+.bannertext {
+  > h3 {
+    font-family: "Bebas Neue", cursive;
+    font-size: 2.5em;
+  }
 }
-
 .violetBox {
   background: #d3b4f6;
   width: 8em;

@@ -1,22 +1,17 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 .container {
-  // padding: 0;
-  // margin-left: auto;
   width: 100%;
   height: 100%;
   background-color: #fafafa;
   display: flex;
   flex-wrap: wrap;
+  > * {
+    flex-shrink: 1;
+  }
+  > h3 {
+    padding: 2rem;
+    font-size: 1.5rem;
+  }
 }
-
-.container > * {
-  flex-shrink: 1;
-}
-
 .cards {
   display: flex;
   gap: 1rem;
@@ -25,9 +20,4 @@
   flex-wrap: wrap;
   justify-content: center;
   padding: 0em 5em;
-}
-
-.container > h3 {
-  padding: 2rem;
-  font-size: 1.5rem;
 }
