@@ -13,7 +13,7 @@ const LoginPage = () => {
 
   async function userLogin(event) {
     event.preventDefault();
-    const response = await fetch("http://localhost:5000/user/login", {
+    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

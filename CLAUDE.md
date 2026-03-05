@@ -35,7 +35,7 @@ API-Marketplace/
 │   ├── .prettierrc             # Prettier config (trailing commas, semicolons, double quotes)
 │   └── package.json
 │
-├── frontend/                   # React 17 SPA (Create React App)
+├── frontend/                   # React 19 SPA (Vite)
 │   ├── public/                 # Static assets
 │   ├── src/
 │   │   ├── App.js              # Root component; defines all React Router routes
@@ -57,7 +57,9 @@ API-Marketplace/
 │   │   └── utils/
 │   │       ├── data.js         # Mock API card data (6 sample entries)
 │   │       └── utils.js        # Empty utility file (placeholder)
-│   ├── .env.example            # Frontend env vars template
+│   ├── index.html              # Vite HTML entry point (project root)
+│   ├── vite.config.js          # Vite build configuration
+│   ├── .env.example            # Frontend env vars template (VITE_ prefix)
 │   ├── .eslintrc.js            # ESLint config (React, JSX, Prettier)
 │   ├── .prettierrc             # Prettier config (same as backend)
 │   └── package.json
@@ -90,7 +92,7 @@ npm run dev            # starts nodemon on port 5000
 cd frontend
 npm install
 cp .env.example .env   # set REACT_BACKEND_URL
-npm start              # starts CRA dev server on port 3000
+npm start              # starts Vite dev server on port 3000
 ```
 
 ### Environment Variables
@@ -104,7 +106,7 @@ BGREMOVER_API_KEY=<your-remove.bg-api-key>
 
 **Frontend** (`frontend/.env`):
 ```
-REACT_BACKEND_URL=http://localhost:5000
+VITE_BACKEND_URL=http://localhost:5000
 ```
 
 ---
@@ -146,7 +148,7 @@ cd frontend && npx eslint src/
 - SCSS for component-level styling (`.scss` files colocated with components)
 - React Router v6: use `<Routes>` + `<Route>` (not v5's `<Switch>`)
 - Authentication token stored in `localStorage` under key `token`
-- Axios for all HTTP requests; base URL from `process.env.REACT_BACKEND_URL`
+- Axios for all HTTP requests; base URL from `import.meta.env.VITE_BACKEND_URL`
 - No global state manager (no Redux/Context); state is component-local
 
 ---
@@ -182,7 +184,7 @@ These are existing problems. Do not work around them silently — fix them prope
 3. **Unused route file** — `backend/src/routes/newuser.js` is a duplicate of `user.js` and is not registered. Do not add or modify it; it should eventually be deleted.
 4. **Background remover uses hardcoded base64 image** — The `/bgremover/upload` route ignores uploaded files and sends a hardcoded test image to remove.bg. Real file upload logic needs to be wired up using the `express-fileupload` middleware already installed.
 5. **Mock data only on frontend** — `MarketPlace.js` and `DashboardPage.js` read from `src/utils/data.js` (static mock data). No real API fetch is implemented for listing APIs.
-6. **Frontend `.env` is empty** — The API base URL defaults to `http://localhost:5000` but should always come from `process.env.REACT_BACKEND_URL`.
+6. **Frontend `.env` requires `VITE_BACKEND_URL`** — The API base URL must be set via `VITE_BACKEND_URL` in `frontend/.env` (accessed via `import.meta.env.VITE_BACKEND_URL`).
 7. **No tests** — Neither backend nor frontend have any test files. The test scripts exist but run nothing meaningful.
 8. **No pagination** — API listing has no server-side or client-side pagination.
 
@@ -270,10 +272,11 @@ When making changes, be aware of these security concerns that need addressing:
 
 | Layer      | Technology                          | Version  |
 |------------|-------------------------------------|----------|
-| Frontend   | React                               | 17.0.2   |
-| Routing    | React Router DOM                    | 6.2.1    |
-| Styling    | SCSS (sass)                         | 1.48.0   |
-| HTTP       | Axios                               | 0.26.0   |
+| Frontend   | React                               | 19.0.0   |
+| Build Tool | Vite                                | 5.x      |
+| Routing    | React Router DOM                    | 6.x      |
+| Styling    | SCSS (sass)                         | 1.x      |
+| HTTP       | Axios                               | 1.x      |
 | Backend    | Node.js + Express                   | 4.17.2   |
 | Database   | MongoDB + Mongoose                  | 6.1.5    |
 | Auth       | JWT (jsonwebtoken) + bcryptjs       | 8.5.1    |

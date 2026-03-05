@@ -3,16 +3,22 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ["eslint:recommended", "plugin:react/recommended"],
+  extends: ["eslint:recommended", "plugin:react/recommended", "plugin:react/jsx-runtime"],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
-    ecmaVersion: 13,
+    ecmaVersion: "latest",
     sourceType: "module",
   },
   plugins: ["react"],
+  settings: {
+    react: {
+      version: "19",
+    },
+  },
   rules: {
     "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
   },
 };
